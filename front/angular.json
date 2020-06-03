@@ -5,12 +5,17 @@
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
+        },
+        "@angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "apps/mjwebsite",
       "sourceRoot": "apps/mjwebsite/src",
-      "prefix": "front",
+      "prefix": "mj",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,6 +31,7 @@
               "apps/mjwebsite/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/mjwebsite/src/styles.scss"
             ],
             "scripts": []
