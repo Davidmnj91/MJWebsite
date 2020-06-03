@@ -17,7 +17,6 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->string('link');
             $table->timestamps();
         });
     }

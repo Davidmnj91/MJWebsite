@@ -23,7 +23,7 @@ class ProjectController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|unique:projects',
-            'date' => 'required|date'
+            'order' => 'numeric|unique:projects'
         ]);
 
         $project = Project::create($request->all());
