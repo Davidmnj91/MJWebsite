@@ -1,5 +1,7 @@
 .grid-container {
-  margin: 10px;
+  height: calc(100% - 64px);
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .dashboard-card {
@@ -17,5 +19,6 @@
 }
 
 .dashboard-card-content {
-  text-align: center;
+  height: calc(100% - 32px);
+  overflow: auto;
 }

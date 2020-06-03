@@ -32,6 +32,12 @@
       "implicitDependencies": [
         "mjwebsite"
       ]
+    },
+    "models": {
+      "tags": []
+    },
+    "services": {
+      "tags": []
     }
   }
 }

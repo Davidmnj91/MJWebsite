@@ -1,10 +1,8 @@
-<mat-toolbar color="primary">
-  MJ Website Admin
-</mat-toolbar>
+<mat-toolbar color="primary">MJ Website Admin</mat-toolbar>
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list [cols]="cols | async" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card mat-elevation-z5">
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
@@ -18,7 +16,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <ng-container mjDynamicField [key]="card.component"></ng-container>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
