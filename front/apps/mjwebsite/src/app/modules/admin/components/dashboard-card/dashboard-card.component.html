@@ -1,0 +1,14 @@
+<mat-card class="dashboard-card">
+  <mat-card-header class="dashboard-card__header">
+    <mat-card-title>
+      <ng-content select="mj-dash-card-title"></ng-content>
+    </mat-card-title>
+    <ng-content select="mj-dash-card-actions"></ng-content>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card__body">
+    <div class="dashboard-card__body__scroll-content">
+      <ng-content select="mj-dash-card-content"></ng-content>
+    </div>
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>

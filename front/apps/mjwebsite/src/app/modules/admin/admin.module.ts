@@ -21,6 +21,12 @@ import { AdminRoutingModule } from "./admin.routing.module";
 import { AdminComponent } from './components/admin/admin.component';
 import { ClientFormComponent } from "./components/client-form/client-form.component";
 import { ClientListComponent } from "./components/client-list/client-list.component";
+import {
+  DashboardCardActions,
+  DashboardCardComponent,
+  DashboardCardContent,
+  DashboardCardTitle
+} from "./components/dashboard-card/dashboard-card.component";
 import { ProjectFormComponent } from "./components/project-form/project-form.component";
 import { ProjectListComponent } from "./components/project-list/project-list.component";
 import { ProjectOrderComponent } from "./components/project-order/project-order.component";
@@ -35,7 +41,11 @@ import { DynamicFieldDirective } from "./dynamic/dynamic-field.directive";
     ProjectFormComponent,
     ProjectListComponent,
     ProjectOrderComponent,
-    DynamicFieldDirective
+    DynamicFieldDirective,
+    DashboardCardComponent,
+    DashboardCardActions,
+    DashboardCardContent,
+    DashboardCardTitle
   ],
   imports: [
     CommonModule,

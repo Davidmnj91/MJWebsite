@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">MJ Website Admin</mat-toolbar>
 <div class="grid-container">
-  <mat-grid-list [cols]="cols | async" rowHeight="350px">
+  <mat-grid-list cols="3" rowHeight="350px">
     <!-- Project Card -->
-    <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile colspan="1" rowspan="2">
       <ng-container *ngIf="editingProject; then projectEditor; else projectTable"></ng-container>
       <ng-template #projectEditor>
         <mj-project-form class="dashboard-card mat-elevation-z5"></mj-project-form>
