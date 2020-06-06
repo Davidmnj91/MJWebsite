@@ -50,3 +50,24 @@
   opacity: 0;
 }
 
+.card-list {
+  box-sizing: border-box;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: column;
+    height: calc(100% - 40px);
+    overflow-y: hidden;
+
+    &__table {
+      overflow-y: auto;
+    }
+  }
+}

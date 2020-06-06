@@ -1,6 +1,31 @@
 <mat-toolbar color="primary">MJ Website Admin</mat-toolbar>
 <div class="grid-container">
   <mat-grid-list [cols]="cols | async" rowHeight="350px">
+    <!-- Project Card -->
+    <mat-grid-tile colspan="2" rowspan="1">
+      <ng-container *ngIf="editingProject; then projectEditor; else projectTable"></ng-container>
+      <ng-template #projectEditor>
+        <mj-project-form class="dashboard-card mat-elevation-z5"></mj-project-form>
+      </ng-template>
+      <ng-template #projectTable>
+        <mj-project-list class="dashboard-card mat-elevation-z5" (edit)="editingProject = true"></mj-project-list>
+      </ng-template>
+    </mat-grid-tile>
+    <!-- Client Card -->
+    <mat-grid-tile colspan="1" rowspan="2">
+      <ng-container *ngIf="editingClient; then clientEditor; else clientTable"></ng-container>
+      <ng-template #clientEditor>
+        <mj-client-form class="dashboard-card mat-elevation-z5"></mj-client-form>
+      </ng-template>
+      <ng-template #clientTable>
+        <mj-client-list class="dashboard-card mat-elevation-z5" (edit)="editingClient = true"></mj-client-list>
+      </ng-template>
+    </mat-grid-tile>
+    <!-- Projects Order Card -->
+    <mat-grid-tile colspan="1" rowspan="2">
+      <mj-project-order class="dashboard-card mat-elevation-z5"></mj-project-order>
+    </mat-grid-tile>
+    <!-- Dynamic
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card mat-elevation-z5">
         <mat-card-header>
@@ -20,5 +45,6 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+    -->
   </mat-grid-list>
 </div>

@@ -6,7 +6,7 @@ import { BaseAdminService } from "./base-admin-service";
 @Injectable({providedIn: "root"})
 export class ClientAdminService extends BaseAdminService<Client> {
 
-  constructor(http: HttpClient) {
+  constructor(protected http: HttpClient) {
     super(http, 'client');
   }
 }

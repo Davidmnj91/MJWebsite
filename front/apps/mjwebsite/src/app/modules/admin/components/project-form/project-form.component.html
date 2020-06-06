@@ -1,9 +1,12 @@
-<form [formGroup]="projectForm" novalidate (ngSubmit)="onSubmit()">
-  <mat-card class="shipping-card">
-    <mat-card-header>
-      <mat-card-title>Project Information</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<mat-card class="card-list" [formGroup]="projectForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card-header class="card-list__header">
+    <mat-card-title>Project Information</mat-card-title>
+    <button mat-icon-button color="primary" type="submit">
+      <mat-icon>save</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content class="card-list__body">
+    <div class="card-list__body__table">
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
@@ -19,19 +22,16 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <mat-form-field class="full-width">
-          <mat-select placeholder="Client" formControlName="client">
-            <mat-option *ngFor="let client of clients$ | async" [value]="client">{{client.name}}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="projectForm.controls['client'].hasError('required')">
-            Client is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
-    </mat-card-actions>
-  </mat-card>
-</form>
+    </div>
+    <div class="row">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Client" formControlName="client">
+          <mat-option *ngFor="let client of clients$ | async" [value]="client">{{client.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="projectForm.controls['client'].hasError('required')">
+          Client is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

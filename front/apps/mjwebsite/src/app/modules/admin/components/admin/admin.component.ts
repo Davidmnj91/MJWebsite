@@ -40,6 +40,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
     })
   );
 
+  editingProject = false;
+  editingClient = false;
+
   constructor(private breakpointObserver: BreakpointObserver) {
   }
 
