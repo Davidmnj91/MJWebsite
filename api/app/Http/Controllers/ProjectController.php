@@ -5,28 +5,42 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
 
     public function showAllProjects()
     {
-        return response()->json(Project::all());
+        return response()->json(Project::with(['Photos', 'Client'])->get());
     }
 
     public function showOneProject($id)
     {
-        return response()->json(Project::find($id));
+        return response()->json(Project::with(['Photos', 'Client'])->find($id));
     }
 
     public function create(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|unique:projects',
-            'order' => 'numeric|unique:projects'
+            'order' => 'numeric|unique:projects',
+            'cover' => 'required|image'
         ]);
 
-        $project = Project::create($request->all());
+        $file = $request->file('cover');
+        $random_name = Str::random(8);
+        $destinationPath = 'projects/';
+        $extension = $file->getClientOriginalExtension();
+        $filename = $random_name . '_cover.' . $extension;
+        $request->file('cover')->move($destinationPath, $filename);
+
+        $project = Project::create([
+            'name' => $request->get('name'),
+            'order' => $request->get('order'),
+            'client_id' => $request->get('client_id'),
+            'cover' => $filename
+        ]);
 
         return response()->json($project, 201);
     }

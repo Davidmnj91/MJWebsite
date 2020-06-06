@@ -5,4 +5,6 @@ export interface Project extends Model {
   name: string;
   order: number;
   client: Client;
+  cover: string;
+  //photos: Photo[]
 }

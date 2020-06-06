@@ -16,7 +16,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'order', 'client'];
+    protected $fillable = ['name', 'order', 'client_id', 'cover'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -24,4 +24,14 @@ class Project extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function Client()
+    {
+        return $this->hasOne('clients');
+    }
+
+    public function Photos()
+    {
+        return $this->has_many('photos');
+    }
 }
