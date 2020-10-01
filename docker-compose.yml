@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  postgresql:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: mjwebsite
+    ports:
+      - 5432:5432
+    volumes:
+      - mjwebsite-db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - 9000:8080
+    depends_on:
+      - postgresql
+    links:
+      - postgresql
+
+volumes:
+  mjwebsite-db:
