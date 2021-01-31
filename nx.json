@@ -1,0 +1,52 @@
+{
+  "npmScope": "mj-website",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "frontend": {
+      "tags": []
+    },
+    "frontend-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend"]
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "http": {
+      "tags": []
+    },
+    "monads": {
+      "tags": []
+    },
+    "ui-components": {
+      "tags": []
+    },
+    "criteria": {
+      "tags": []
+    }
+  }
+}

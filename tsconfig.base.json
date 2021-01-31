@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mj-website/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@mj-website/http": ["libs/http/src/index.ts"],
+      "@mj-website/monads": ["libs/monads/src/index.ts"],
+      "@mj-website/ui-components": ["libs/ui-components/src/index.ts"],
+      "@mj-website/criteria": ["libs/criteria/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

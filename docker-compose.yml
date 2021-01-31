@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: mjwebsite
+    ports:
+      - 5432:5432
+    volumes:
+      - mjwebsite-db:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - '9000:80'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    links:
+      - 'db:pgsql-server'
+
+volumes:
+  mjwebsite-db:
+  pgadmin-data:
